@@ -29,7 +29,7 @@ if (inputData) {
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  console.log(readFormData(form));
+  console.log(readFormData(event.currentTarget));
   localStorage.removeItem(STORAGE_KEY);
   form.reset();
 });

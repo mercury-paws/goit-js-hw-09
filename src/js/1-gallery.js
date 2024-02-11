@@ -1,5 +1,5 @@
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import 'simplelightbox/dist/simple-lightbox.css';
 
 ('use strict');
 const images = [
@@ -71,7 +71,6 @@ const images = [
 const gallery = document.querySelector('.gallery');
 
 gallery.innerHTML = createMarkup(images);
-let instance;
 
 function createMarkup(images) {
   return images
@@ -82,7 +81,7 @@ function createMarkup(images) {
     <img
       class="gallery-image"
       src="${el.preview}"
-      data-source="${el.original}"
+      
       alt="${el.description}"
     />
   </a>
@@ -91,12 +90,17 @@ function createMarkup(images) {
     .join('');
 }
 
-// let galleryBox = new SimpleLightbox('.gallery a');
-// galleryBox.on('show.simplelightbox', function () {
-//   captionsData: 'alt',
-//   captionDelay: 250,
-// });
 let galleryBox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
+  overlayOpacity: 0.8,
+  overlay: true,
+  loop: true,
+  widthRatio: 0.8,
+  heightRatio: 0.9,
 });
+
+// galleryBox.on('show.simplelightbox', () => {
+//   const overlay = document.querySelector('.sl-wrapper');
+//   overlay.style.background = 'rgba(46, 47, 66, 0.8)';
+// });
