@@ -4,8 +4,8 @@ const STORAGE_KEY = 'feedback-form-state';
 const form = document.querySelector('.feedback-form');
 
 function readFormData(form) {
-  const email = form.email.value;
-  const message = form.message.value;
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
   return {
     email,
     message,
@@ -13,7 +13,6 @@ function readFormData(form) {
 }
 
 form.addEventListener('input', event => {
-  event.preventDefault();
   const data = readFormData(event.currentTarget);
   const jsonData = JSON.stringify(data);
   localStorage.setItem(STORAGE_KEY, jsonData);
@@ -28,8 +27,13 @@ if (inputData) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-
-  console.log(readFormData(event.currentTarget));
+  const email = form.email.value;
+  const message = form.message.value;
+  if (!email || !message) {
+    alert('Please fill in both email and message fields.');
+  } else {
+    console.log(readFormData(event.currentTarget));
+  }
   localStorage.removeItem(STORAGE_KEY);
   form.reset();
 });

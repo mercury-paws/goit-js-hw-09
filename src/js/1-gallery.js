@@ -1,5 +1,5 @@
 import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.css';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 ('use strict');
 const images = [
@@ -95,12 +95,4 @@ let galleryBox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
   overlayOpacity: 0.8,
   overlay: true,
-  loop: true,
-  widthRatio: 0.8,
-  heightRatio: 0.9,
 });
-
-// galleryBox.on('show.simplelightbox', () => {
-//   const overlay = document.querySelector('.sl-wrapper');
-//   overlay.style.background = 'rgba(46, 47, 66, 0.8)';
-// });
