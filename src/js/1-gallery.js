@@ -81,7 +81,6 @@ function createMarkup(images) {
     <img
       class="gallery-image"
       src="${el.preview}"
-      
       alt="${el.description}"
     />
   </a>
@@ -93,6 +92,4 @@ function createMarkup(images) {
 let galleryBox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
-  overlayOpacity: 0.8,
-  overlay: true,
 });

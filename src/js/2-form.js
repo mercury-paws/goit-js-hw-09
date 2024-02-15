@@ -27,13 +27,15 @@ if (inputData) {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const email = form.email.value;
-  const message = form.message.value;
-  if (!email || !message) {
+  const email = form.email.value.trim();
+  const message = form.message.value.trim();
+
+  if (!email || !message || email === ' ' || message === ' ') {
     alert('Please fill in both email and message fields.');
-  } else {
-    console.log(readFormData(event.currentTarget));
+    return;
   }
+  console.log(readFormData(event.currentTarget));
+
   localStorage.removeItem(STORAGE_KEY);
   form.reset();
 });
